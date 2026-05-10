@@ -1,6 +1,10 @@
 services:
   monopoly-banker:
     # Auto-built and pushed by .github/workflows/docker-publish.yml.
+    # Tag channels:
+    #   :latest    — stable releases from `main` branch (recommended for production)
+    #   :beta      — pre-release builds from `beta` branch (test new features here)
+    #   :1.2.3     — pinned semver from `v1.2.3` git tags (most reproducible)
     # To build from source instead, comment `image:` and uncomment `build: .`.
     image: ghcr.io/nyrangers423/monopoly-banker-board:latest
     # build: .
