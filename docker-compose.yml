@@ -1,21 +1,22 @@
 services:
   monopoly-banker:
-    # Replace OWNER/REPO with your GitHub username and repo name once published.
-    # The image is auto-built and pushed by .github/workflows/docker-publish.yml.
+    # Auto-built and pushed by .github/workflows/docker-publish.yml.
+    # To build from source instead, comment `image:` and uncomment `build: .`.
     image: ghcr.io/nyrangers423/monopoly-banker-board:latest
-    # To build from source instead, comment the `image:` line above and uncomment:
     # build: .
     container_name: monopoly-banker
     restart: unless-stopped
     ports:
-      - "3030:3000"
+      - "3030:3030"   # host:container — change the host (left) side if 3030 is in use
     volumes:
+      # left side = host path (change to wherever you want the SQLite file).
+      # right side = container path — don't change, the app writes banker.db here.
       - ./data:/app/data
     environment:
       - NODE_ENV=production
-      - ADMIN_CODE=1413
-      - DEFAULT_CURRENCY=classic
+      - ADMIN_CODE=1413                       # CHANGE THIS before exposing outside your LAN
+      - DEFAULT_CURRENCY=classic              # classic | millions
       - DEFAULT_FREE_PARKING_ENABLED=true
-      - DEFAULT_STARTING_BALANCE=1500
-      - DEFAULT_PASS_GO_AMOUNT=200
+      - DEFAULT_STARTING_BALANCE=1500         # 15000000 in millions mode
+      - DEFAULT_PASS_GO_AMOUNT=200            # 2000000 in millions mode
       - DB_PATH=/app/data/banker.db

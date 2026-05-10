@@ -17,7 +17,7 @@ function envInt(value: string | undefined, fallback: number): number {
 }
 
 export const config = {
-  port: envInt(process.env.PORT, 3000),
+  port: envInt(process.env.PORT, 3030),
   host: process.env.HOST ?? '0.0.0.0',
   adminCode: process.env.ADMIN_CODE ?? '1413',
   defaultCurrency: (process.env.DEFAULT_CURRENCY === 'millions' ? 'millions' : 'classic') as

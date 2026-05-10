@@ -35,8 +35,8 @@ COPY --from=builder /app/server/package.json ./server/
 COPY --from=builder /app/server/src/db/schema.sql ./server/dist/db/schema.sql
 COPY --from=builder /app/client/dist ./client/dist
 
-EXPOSE 3000
+EXPOSE 3030
 VOLUME ["/app/data"]
-ENV PORT=3000 HOST=0.0.0.0 DB_PATH=/app/data/banker.db
+ENV PORT=3030 HOST=0.0.0.0 DB_PATH=/app/data/banker.db
 
 CMD ["node", "server/dist/index.js"]
