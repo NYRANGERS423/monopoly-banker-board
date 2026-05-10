@@ -1,5 +1,8 @@
 # Monopoly Banker
 
+[![Build & publish Docker image](https://github.com/NYRANGERS423/monopoly-banker-board/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/NYRANGERS423/monopoly-banker-board/actions/workflows/docker-publish.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A self-hosted, mobile-first web app that replaces the paper money in a physical
 Monopoly game. Players join a single shared "table" by visiting a URL on their
 phone, pick a name and color, and from then on every transaction — pay the bank,
@@ -150,7 +153,7 @@ npm run dev
 - Connect from phones on the same LAN: `http://<your-LAN-ip>:5173`
 
 ```bash
-npm test           # 29 engine tests
+npm test           # engine unit tests
 npm run typecheck  # server + client typecheck
 npm run build      # production build
 npm start          # serves the built client + server on :3000
@@ -187,4 +190,10 @@ client/   — Vite + React + Tailwind UI
 
 ## License
 
-MIT (or whatever you prefer — drop a `LICENSE` file in the repo root).
+Released under the [MIT License](LICENSE) — free to use, modify, and
+redistribute.
+
+This project is **unaffiliated with Hasbro, Inc.** "Monopoly" is a trademark of
+Hasbro. This software is a player aid for tracking money in a physical copy of
+the game; it includes no Hasbro artwork, board layouts, card text, or other
+copyrighted content.
