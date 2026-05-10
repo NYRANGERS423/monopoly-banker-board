@@ -1,21 +1,42 @@
+# Dependencies & build artifacts
 node_modules
 dist
 *.log
+coverage
+
+# Environment + secrets
 .env
 .env.local
+
+# Database files (host-mounted SQLite)
 data/
 *.db
 *.db-journal
 *.db-wal
 *.db-shm
+
+# OS / editor
 .DS_Store
 .vscode
 .idea
-coverage
 
-# Local-only planning / personal docs
-MONOPOLY_BANKER_PLAN.md
+# ------------------------------------------------------------------
+# LOCAL-ONLY — never push to GitHub
+# Anything you want to keep private (planning docs, personal notes,
+# scratch files, AI-assistant context) goes in _local/ or matches one
+# of the patterns below.
+# ------------------------------------------------------------------
+
+# Personal working folder — sorted to the top via the underscore
+_local/
+
+# Claude Code per-machine settings + AI memory file
+.claude/
+CLAUDE.md
+AGENTS.md
+
+# Common scratch-file conventions (use these names freely; they're ignored)
 NOTES.md
 TODO.md
+SCRATCH.md
 *.local.md
-
