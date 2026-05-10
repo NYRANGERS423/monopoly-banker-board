@@ -1,0 +1,21 @@
+node_modules
+dist
+*.log
+.env
+.env.local
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.DS_Store
+.vscode
+.idea
+coverage
+
+# Local-only planning / personal docs
+MONOPOLY_BANKER_PLAN.md
+NOTES.md
+TODO.md
+*.local.md
+

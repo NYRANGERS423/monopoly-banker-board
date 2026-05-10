@@ -1,0 +1,21 @@
+services:
+  monopoly-banker:
+    # Replace OWNER/REPO with your GitHub username and repo name once published.
+    # The image is auto-built and pushed by .github/workflows/docker-publish.yml.
+    image: ghcr.io/nyrangers423/monopoly-banker-board:latest
+    # To build from source instead, comment the `image:` line above and uncomment:
+    # build: .
+    container_name: monopoly-banker
+    restart: unless-stopped
+    ports:
+      - "3030:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      - ADMIN_CODE=1413
+      - DEFAULT_CURRENCY=classic
+      - DEFAULT_FREE_PARKING_ENABLED=true
+      - DEFAULT_STARTING_BALANCE=1500
+      - DEFAULT_PASS_GO_AMOUNT=200
+      - DB_PATH=/app/data/banker.db
