@@ -2,7 +2,7 @@ name: Build & publish Docker image
 
 on:
   push:
-    branches: [main]
+    branches: [main, beta]
     tags: ['v*.*.*']
   workflow_dispatch:
 
@@ -39,7 +39,15 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          # latest = main branch; semver tags for releases; sha for traceability
+          # Tag channels:
+          #   main branch  -> :latest (production)
+          #   beta branch  -> :beta   (pre-release; pull this to test before promoting)
+          #   v*.*.*  tag  -> :1.2.3, :1.2 (semver releases)
+          #   any push     -> :<branch>, :sha-xxxxxxx (traceability)
+          # `flavor: latest=false` prevents the metadata action from auto-tagging
+          # tag-builds as :latest — we only want main-branch builds to move :latest.
+          flavor: |
+            latest=false
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}

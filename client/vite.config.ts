@@ -8,11 +8,11 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/socket.io': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:3030',
         ws: true,
         changeOrigin: true,
       },
-      '/healthz': 'http://localhost:3000',
+      '/healthz': 'http://localhost:3030',
     },
   },
   build: {

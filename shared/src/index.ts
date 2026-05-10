@@ -105,7 +105,7 @@ export const PLAYER_COLORS = [
   '#009E73', // bluish green
   '#E69F00', // orange
   '#CC79A7', // reddish purple
-  '#56B4E9', // sky blue
+  '#9D4EDD', // violet
   '#F0E442', // yellow
   '#8B4513', // saddle brown
 ] as const;
